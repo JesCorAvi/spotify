@@ -57,7 +57,8 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view("albumes.show", ["album"=>$album]);
+
     }
 
     /**

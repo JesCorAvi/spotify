@@ -50,7 +50,7 @@ class CancionController extends Controller
      */
     public function show(Cancion $cancion)
     {
-        //
+        return view("canciones.show", ["cancion"=>$cancion]);
     }
 
     /**
