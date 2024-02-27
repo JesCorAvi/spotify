@@ -35,7 +35,7 @@ Route::get('/canciones/{cancion}/añadir-album', [CancionController::class, 'añ
 Route::put('/canciones/{cancion}/añadir-artista/guardar', [CancionController::class, 'guardarArtista'])->name('canciones.guardarArtista');
 Route::put('/canciones/{cancion}/añadir-album/guardar', [CancionController::class, 'guardarAlbum'])->name('canciones.guardarAlbum');
 
-Route::view('/', 'busqueda.barra');
+Route::view('/', 'busqueda.barra')->middleware("auth");
 
 Route::get('/resultados', [BusquedaController::class, 'resultados'])->name('busqueda.resultados');
 
