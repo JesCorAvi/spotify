@@ -3,7 +3,7 @@
     @vite('resources/css/app.css')
 
 
-    <form action="{{route("albumes.update", $album)}}" class="max-w-sm mx-auto" method="POST">
+    <form action="{{route("albumes.update", $album)}}" class="max-w-sm mx-auto" method="POST" enctype="multipart/form-data">
         @csrf
         @method("put")
         <div class="mb-5">

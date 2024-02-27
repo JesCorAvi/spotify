@@ -74,9 +74,23 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
+        $request->validate([
+            'imagen' => 'required|mimes:jpg,png,jpeg|max:400',
+        ]);
+
+        $image = $request->file('imagen');
+        $name = hash('sha256', time() . $image->getClientOriginalName()) . ".png";
+        $image->storeAs('uploads/albumes', $name, 'public');
+
+        $manager = new ImageManager(new Driver());
+        $imageR = $manager->read(Storage::disk('public')->get('uploads/albumes/' . $name));
+        $imageR->scaleDown(200); //cambiar esto para ajustar el reescalado de la imagen
+        $rute = Storage::path('public/uploads/albumes/' . $name);
+        $imageR->save($rute);
+
         $album->update([
             "nombre" => $request->nombre,
-            "imagen" => $request->imagen,
+            "imagen" => 'storage/uploads/albumes/' . $name,
         ]);
         return redirect()->route("albumes.index");
     }

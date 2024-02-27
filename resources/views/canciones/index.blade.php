@@ -38,12 +38,6 @@
                                 @method('DELETE')
                                 <button type="submit">Borrar</button>
                             </form>
-                            <a href="{{ route('canciones.añadirArtista', $cancion) }}"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Añadir autor
-                            </a>
-                            <a href="{{ route('canciones.añadirAlbum', $cancion) }}"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Añadir Album
-                            </a><br>
                         </td>
                     </tr>
                 @endforeach
