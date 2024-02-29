@@ -34,4 +34,11 @@ Route::view('/', 'busqueda.barra')->middleware("auth");
 
 Route::get('/resultados', [BusquedaController::class, 'resultados'])->name('busqueda.resultados');
 
+Route::get('/resultados', [BusquedaController::class, 'resultados'])->name('busqueda.resultados');
+Route::get('/resultados', [BusquedaController::class, 'resultados'])->name('busqueda.resultados');
+
+Route::get('/cancioncrear', [CancionController::class, 'crear'])->name('canciones.crear');
+Route::get('/cancioneditar', [CancionController::class, 'editar'])->name('canciones.editar');
+
+
 require __DIR__.'/auth.php';

@@ -21,12 +21,9 @@ class Cancion extends Model
         return $this->belongsToMany(Artista::class);
     }
     use HasFactory;
+
     public function formatear() {
         $segundos = $this->duracion;
-        if (!$segundos){
-            return "Sin canciones";
-
-        }
         $minutos = floor($segundos / 60);
         $segundosRestantes = $segundos % 60;
         if($segundosRestantes){

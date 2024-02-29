@@ -166,4 +166,14 @@ class CancionController extends Controller
         return redirect()->route("canciones.index");
     }
 
+    public function crear()
+    {
+        return view("canciones.crear", ["canciones"=>Cancion::all(), "albumes"=>Album::all(), "artistas"=>Artista::all()]);
+    }
+
+    public function editar()
+    {
+        return view("canciones.editar", ["canciones"=>Cancion::all(), "albumes"=>Album::all(), "artistas"=>Artista::all()]);
+    }
+
 }
